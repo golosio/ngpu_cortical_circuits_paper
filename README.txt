@@ -90,9 +90,9 @@ The scripts KL_*_* plot a comparison of the histograms obtained using GeNN and N
 
 ======================================================================
 Balanced networks of excitatory and inhibitory AdEx neurons
-(folder balanced_network)
+(folder balanced_AdEx)
 ======================================================================
-Comparison of balanced networks of excitatory and inhibitory AdEx neurons simulations based on NEST and NeruronGPU
+Comparison of balanced networks of excitatory and inhibitory AdEx neurons with couductance-based synapses modeled by alpha function, simulated with NEST and NeruronGPU using 5th order Runge-Kutta with adaptive step size
 ----------------------------------------------------------------------
 
 The subfolders contain Python scripts for balanced network simulations based on NEST 2.20 and NeuronGPU 1.6.0 and scripts for evaluating building time and simulation time at varying number of neurons and number of connections.
@@ -132,4 +132,24 @@ ngpu_build_time_conn.dat
 ngpu_build_time.dat
 ngpu_sim_time_conn.dat
 ngpu_sim_time.dat
+
+======================================================================
+Balanced networks of excitatory and inhibitory Izhikevich neurons
+(folder balanced_Izhikevich_STDP)
+======================================================================
+Balanced networks of excitatory and inhibitory Izhikevich neurons with current-based synapses modeled by exponential decay function, simulated using NeruronGPU, integrated using two Euler forward steps per simulation time step
+----------------------------------------------------------------------
+
+This folder contains the Python script for the balanced network simulation based on NeuronGPU 1.6.10 and scripts for evaluating building time and simulation time at varying number of neurons
+
+Running the script
+
+$ source script.sh
+
+launches all the simulations at varying number of neurons and sends the output to the logfiles balanced_izh_psc_exp_2s_eval_time_10e${p}.log
+where the power exponent ${p} takes the values 4, 4.5, 5, 5.5 and 6,
+extract building and simulation times from the logfiles and write them to the file balanced_izh_psc_exp_2s_eval_time.dat in three columns:
+
+power-of-10-exponent building-time simulation-time
+
 
